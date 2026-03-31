@@ -1,11 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Практика верстки</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Замыкания в JavaScript — статья</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f8f9fa;
+            padding: 48px 24px;
+            font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+
+        .article {
+            max-width: 780px;
+            margin: 0 auto;
+            background: white;
+            padding: 56px 56px 72px;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.02);
+            border-radius: 2px;
+        }
+
+        h1 {
+            font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+            font-size: 38px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.3px;
+            margin-bottom: 20px;
+            color: #0a0a0a;
+        }
+
+        h2 {
+            font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            margin: 44px 0 16px;
+            line-height: 1.25;
+        }
+
+        p {
+            margin-bottom: 24px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        code {
+            font-family: "Courier New", monospace;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .image-wrapper {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .article-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: block;
+            margin: 0 auto;
+        }
+
+        hr {
+            margin: 40px 0 24px;
+            border: none;
+            border-top: 1px solid #e2e6e9;
+        }
+
+        @media (max-width: 720px) {
+            body {
+                padding: 24px 16px;
+            }
+            .article {
+                padding: 32px 20px;
+            }
+            h1 {
+                font-size: 30px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!--Статью верстать тут-->
+<div class="article">
+    <h1>Замыкания в JavaScript для начинающих</h1>
+
+    <p>Замыкания — это одна из фундаментальных концепций JavaScript, вызывающая сложности у многих новичков, знать и понимать которую должен каждый JS-программист. Хорошо разобравшись с замыканиями, вы сможете писать более качественный, эффективный и чистый код. А это, в свою очередь, будет способствовать вашему профессиональному росту.</p>
+
+    <p>Материал, перевод которого мы публикуем сегодня, посвящён рассказу о внутренних механизмах замыканий и о том, как они работают в JavaScript-программах.</p>
+
+    <h2>Что такое замыкание?</h2>
+    <p>Замыкание — это функция, у которой есть доступ к области видимости, сформированной внешней по отношению к ней функции даже после того, как эта внешняя функция завершила работу. Это значит, что в замыкании могут храниться переменные, объявленные во внешней функции и переданные ей аргументы. Прежде чем мы перейдём, собственно, к замыканиям, разберёмся с понятием «лексическое окружение».</p>
+
+    <h2>Что такое лексическое окружение?</h2>
+    <p>Понятие «лексическое окружение» или «статическое окружение» в JavaScript относится к возможности доступа к переменным, функциям и объектам на основе их физического расположения в исходном коде. Рассмотрим пример:</p>
+
+    <div class="image-wrapper">
+        <img class="article-img" 
+             src="article-design/2744EFD6-B878-4DCB-B0D5-526F1B233733/CA501510-E978-4377-9076-8F392B899C1B@2x.png" 
+             alt="Схема лексического окружения в JavaScript">
+    </div>
+
+<p>Здесь у функции <code>inner()</code> есть доступ к переменным, объявленным в её собственной области видимости, в области видимости функции <code>outer()</code> и в глобальной области видимости. Функция <code>outer()</code> имеет доступ к переменным, объявленным в её собственной области видимости и в глобальной области видимости.</p>
+
+<p>Цепочка областей видимости вышеприведённого кода будет выглядеть так:</p>
+    <div class="image-wrapper">
+        <img class="article-img" 
+             src="article-design/2744EFD6-B878-4DCB-B0D5-526F1B233733/848B0BFD-C857-4F1E-93BF-3822E0A81A7E@2x.png" 
+             alt="Визуализация замыкания в JavaScript">
+    </div>
+
+    <p>Обратите внимание на то, что функция <code>inner()</code> окружена лексическим окружением функции <code>outer()</code>, которая, в свою очередь, окружена глобальной областью видимости. Именно поэтому функция <code>inner()</code> может получить доступ к переменным, объявленным в функции <code>outer()</code> и в глобальной области видимости.</p>
+</div>
 </body>
 </html>
