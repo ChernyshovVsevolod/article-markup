@@ -1,8 +1,116 @@
-/* Тут пиши основные стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    background: #f8f9fa;
+    padding: 48px 0;
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+    color: #1a1a1a;
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-@media (max-width: 800px) {
-/* Тут пиши стили для мобилки.
-    Стили применятся только когда страничка будет ≤800px шириной
- */
+.article {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 362px;
+    background: white;
+    padding: 56px 56px 72px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.02);
+    border-radius: 2px;
+}
+
+h1 {
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    margin-bottom: 20px;
+    color: #0a0a0a;
+}
+
+h2 {
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 44px 0 16px;
+    line-height: 1.25;
+}
+
+p {
+    margin-bottom: 24px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+code {
+    font-family: "Courier New", monospace;
+    background: #f0f0f0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.image-wrapper {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.article-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: block;
+    margin: 0 auto;
+}
+
+hr {
+    margin: 40px 0 24px;
+    border: none;
+    border-top: 1px solid #e2e6e9;
+}
+
+@media (max-width: 1420px) {
+    .article {
+        margin: 0 200px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .article {
+        margin: 0 100px;
+    }
+}
+
+@media (max-width: 900px) {
+    .article {
+        margin: 0 50px;
+    }
+}
+
+@media (max-width: 720px) {
+    body {
+        padding: 24px 0;
+    }
+    .article {
+        margin: 0 20px;
+        padding: 32px 20px;
+    }
+    h1 {
+        font-size: 30px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+    p {
+        font-size: 16px;
+    }
 }
