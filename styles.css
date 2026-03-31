@@ -63,9 +63,8 @@ body {
 }
 
 .main-nav a.active {
-    color: #0a0a0a;
+    color: #ff0000;
     font-weight: 600;
-    border-bottom: 2px solid #0a0a0a;
 }
 
 .main-nav a:hover {
@@ -132,22 +131,36 @@ code {
     .header-container {
         padding: 16px 20px;
     }
+    
     .main-nav ul {
-        gap: 20px;
-        padding: 12px 20px;
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px 20px;
+        align-items: center;
     }
+    
     .main-nav a {
-        font-size: 14px;
+        font-size: 18px;
+        padding: 8px 0;
+        display: inline-block;
     }
+    
+    .main-nav a.active {
+        border-bottom: none;
+    }
+    
     .article {
         padding: 0 20px 40px;
     }
+    
     .article-title {
         font-size: 28px;
     }
+    
     h2 {
         font-size: 24px;
     }
+    
     p {
         font-size: 16px;
     }
